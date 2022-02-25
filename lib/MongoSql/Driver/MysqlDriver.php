@@ -26,14 +26,28 @@ class MysqlDriver extends Driver
      */
     protected static function createConnection(array $options, array $driverOptions = []): PDO
     {
+        // Create a variable DSN to allow for host/port or unix socket file
+        $dsn = vsprintf('mysql:dbname=%s;charset=%s', [
+            $options['dbname'],
+            $options['charset'] ?? 'UTF8'
+        ]);
+
+        // Use a socket if specified, else use host/port
+        if (!empty($options['socket'])) {
+            $dsn .= vsprintf('unix_socket=%s;', [
+                $options['socket']
+            ]);
+        }
+        else {
+            $dsn .= vsprintf('host=%s;port=%s;', [
+                $options['host'] ?? 'localhost',
+                $options['port'] ?? 3306
+            ]);
+        }
+
         // See https://www.php.net/manual/en/ref.pdo-mysql.connection.php
         $connection = new PDO(
-            vsprintf('mysql:host=%s;port=%s;dbname=%s;charset=%s', [
-                $options['host'] ?? 'localhost',
-                $options['port'] ?? 3306,
-                $options['dbname'],
-                $options['charset'] ?? 'UTF8'
-            ]),
+            $dsn,
             $options['username'],
             $options['password'],
             $driverOptions + [

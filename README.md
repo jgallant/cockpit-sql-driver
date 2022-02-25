@@ -77,15 +77,16 @@ return [
         'server' => 'sqldriver',
         # Connection options
         'options' => [
-            'connection' => 'mysql',         # One of 'mysql'|'pgsql'
-            'host'       => 'localhost',     # Optional, defaults to 'localhost'
-            'port'       => 3306,            # Optional, defaults to 3306 (MySQL) or 5432 (PostgreSQL)
-            'dbname'     => 'DATABASE_NAME',
-            'username'   => 'USER',
-            'password'   => 'PASSWORD',
-            'charset'    => 'UTF8',          # Optional, defaults to 'UTF8'
-            'tablePrefix' => '',             # Optional, database tables prefix (ie. 'cockpit_')
-            'bootstrapPriority' => 999,      # Optional, defaults to 999
+            'connection'        => 'mysql',         # One of 'mysql'|'pgsql'
+            'host'              => 'localhost',     # Optional, defaults to 'localhost'
+            'port'              => 3306,            # Optional, defaults to 3306 (MySQL) or 5432 (PostgreSQL)
+            'socket'            => '',              # Optional, will be used instead of host/port if specified, MySQL only
+            'dbname'            => 'DATABASE_NAME',
+            'username'          => 'USER',
+            'password'          => 'PASSWORD',
+            'charset'           => 'UTF8',          # Optional, defaults to 'UTF8'
+            'tablePrefix'       => '',              # Optional, database tables prefix (ie. 'cockpit_')
+            'bootstrapPriority' => 999,             # Optional, defaults to 999
         ],
         # Connection specific options
         # General: https://www.php.net/manual/en/pdo.setattribute.php

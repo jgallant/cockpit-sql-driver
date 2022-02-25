@@ -97,6 +97,7 @@ class ClientTest extends TestCase
                     'connection' => $GLOBALS['db_options_connection'],
                     'host'       => $GLOBALS['db_options_host'] ?? null,
                     'port'       => $GLOBALS['db_options_port'] ?? null,
+                    'socket'     => $GLOBALS['db_options_socket'] ?? null,
                     'dbname'     => $GLOBALS['db_options_dbname'],
                     'username'   => $GLOBALS['db_options_username'],
                     'password'   => $GLOBALS['db_options_password'],

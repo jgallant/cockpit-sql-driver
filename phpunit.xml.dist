@@ -10,6 +10,7 @@
         <var name="db_options_connection" value="mysql" />
         <var name="db_options_host" value="localhost" />
         <var name="db_options_port" value="3306" />
+        <var name="db_options_socket" value="" />
         <var name="db_options_dbname" value="DATABASE_NAME" />
         <var name="db_options_username" value="USER" />
         <var name="db_options_password" value="PASSWORD" />
